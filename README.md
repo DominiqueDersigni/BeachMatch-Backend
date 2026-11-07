@@ -186,4 +186,5 @@ De applicatie kent twee rollen. De gebruikers en rollen worden beheerd in Keyclo
 | `valerie`      | `val123`   | `ROLE_USER` |
 | `gittha`       | `git123`   | `ROLE_USER` |
 
+Een nieuw account aanmaken kan via de knop **Create account** op de inlogpagina. Nieuwe gebruikers krijgen automatisch de rol `ROLE_USER`.
 De rollen per endpoint staan beschreven in de API-documentatie.
