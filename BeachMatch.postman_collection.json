@@ -1,19 +1,11 @@
 {
   "info": {
-    "_postman_id": "8e9b11b6-6c8e-4161-9187-b9b09c67701e",
+    "_postman_id": "073ce500-817a-470e-87b5-96e0c3fa3099",
     "name": "BeachMatch API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56338962",
+    "_collection_link": "https://go.postman.co/collection/56338962-073ce500-817a-470e-87b5-96e0c3fa3099?source=collection_link"
   },
-  "variable": [
-    {
-      "key": "adminToken",
-      "value": ""
-    },
-    {
-      "key": "userToken",
-      "value": ""
-    }
-  ],
   "item": [
     {
       "name": "0. Tokens",
@@ -73,7 +65,8 @@
                 "token"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Get token user (daniel)",
@@ -111,7 +104,7 @@
                 },
                 {
                   "key": "password",
-                  "value": "VUL-HIER-WACHTWOORD-DANIEL-IN"
+                  "value": "daan123"
                 }
               ]
             },
@@ -130,22 +123,13 @@
                 "token"
               ]
             }
-          }
+          },
+          "response": []
         }
       ]
     },
     {
       "name": "Beaches",
-      "auth": {
-        "type": "bearer",
-        "bearer": [
-          {
-            "key": "token",
-            "value": "{{adminToken}}",
-            "type": "string"
-          }
-        ]
-      },
       "item": [
         {
           "name": "Get all beaches",
@@ -163,7 +147,8 @@
                 "beaches"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Get beach by id",
@@ -182,7 +167,8 @@
                 "1"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Create beach",
@@ -194,6 +180,15 @@
                 "value": "application/json"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Wijk aan Zee\",\n  \"description\": \"A wide beach near IJmuiden.\",\n  \"province\": \"Noord-Holland\",\n  \"latitude\": 52.493,\n  \"longitude\": 4.588\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "http://localhost:8080/beaches",
               "protocol": "http",
@@ -204,17 +199,9 @@
               "path": [
                 "beaches"
               ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"Wijk aan Zee\",\n  \"description\": \"A wide beach near IJmuiden.\",\n  \"province\": \"Noord-Holland\",\n  \"latitude\": 52.493,\n  \"longitude\": 4.588\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Update beach",
@@ -226,6 +213,15 @@
                 "value": "application/json"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Bergen aan Zee\",\n  \"description\": \"A quiet, natural beach with high dunes. Updated description.\",\n  \"province\": \"Noord-Holland\",\n  \"latitude\": 52.493,\n  \"longitude\": 4.588\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "http://localhost:8080/beaches/1",
               "protocol": "http",
@@ -237,17 +233,9 @@
                 "beaches",
                 "1"
               ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"Wijk aan Zee\",\n  \"description\": \"A wide beach near IJmuiden.\",\n  \"province\": \"Noord-Holland\",\n  \"latitude\": 52.493,\n  \"longitude\": 4.588\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Delete beach",
@@ -266,7 +254,8 @@
                 "1"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Add feature to beach",
@@ -274,7 +263,7 @@
             "method": "POST",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/beaches/1/beachFeatures/2",
+              "raw": "http://localhost:8080/beaches/2/beachFeatures/2",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -282,12 +271,13 @@
               "port": "8080",
               "path": [
                 "beaches",
-                "1",
+                "2",
                 "beachFeatures",
                 "2"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Remove feature from beach",
@@ -295,7 +285,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/beaches/1/beachFeatures/2",
+              "raw": "http://localhost:8080/beaches/2/beachFeatures/2",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -303,20 +293,33 @@
               "port": "8080",
               "path": [
                 "beaches",
-                "1",
+                "2",
                 "beachFeatures",
                 "2"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Upload beach photo",
           "request": {
             "method": "POST",
             "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": [
+                    "/Users/dominiquedersigni/Desktop/IMG_0701_small.jpg"
+                  ]
+                }
+              ]
+            },
             "url": {
-              "raw": "http://localhost:8080/beaches/1/photo",
+              "raw": "http://localhost:8080/beaches/2/photo",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -324,21 +327,12 @@
               "port": "8080",
               "path": [
                 "beaches",
-                "1",
+                "2",
                 "photo"
               ]
-            },
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "file",
-                  "type": "file",
-                  "src": []
-                }
-              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Get beach photo",
@@ -346,7 +340,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/beaches/1/photo",
+              "raw": "http://localhost:8080/beaches/2/photo",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -354,16 +348,14 @@
               "port": "8080",
               "path": [
                 "beaches",
-                "1",
+                "2",
                 "photo"
               ]
             }
-          }
+          },
+          "response": []
         }
-      ]
-    },
-    {
-      "name": "Beach Features",
+      ],
       "auth": {
         "type": "bearer",
         "bearer": [
@@ -373,7 +365,10 @@
             "type": "string"
           }
         ]
-      },
+      }
+    },
+    {
+      "name": "Beach Features",
       "item": [
         {
           "name": "Get all features",
@@ -391,7 +386,8 @@
                 "beachfeatures"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Get feature by id",
@@ -410,7 +406,8 @@
                 "1"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Create feature",
@@ -422,6 +419,15 @@
                 "value": "application/json"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nudist beach\",\n  \"description\": \"Clothing optional.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "http://localhost:8080/beachfeatures",
               "protocol": "http",
@@ -432,17 +438,9 @@
               "path": [
                 "beachfeatures"
               ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"Nudist beach\",\n  \"description\": \"Clothing optional.\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Update feature",
@@ -454,6 +452,15 @@
                 "value": "application/json"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nudist beach\",\n  \"description\": \"Clothing optional.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "http://localhost:8080/beachfeatures/1",
               "protocol": "http",
@@ -465,17 +472,9 @@
                 "beachfeatures",
                 "1"
               ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"Nudist beach\",\n  \"description\": \"Clothing optional.\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Delete feature",
@@ -494,22 +493,23 @@
                 "1"
               ]
             }
-          }
+          },
+          "response": []
         }
-      ]
-    },
-    {
-      "name": "Reviews",
+      ],
       "auth": {
         "type": "bearer",
         "bearer": [
           {
             "key": "token",
-            "value": "{{userToken}}",
+            "value": "{{adminToken}}",
             "type": "string"
           }
         ]
-      },
+      }
+    },
+    {
+      "name": "Reviews",
       "item": [
         {
           "name": "Create review",
@@ -521,6 +521,15 @@
                 "value": "application/json"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Lovely day\",\n  \"text\": \"Quiet and clean.\",\n  \"score\": 5,\n  \"beachId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "http://localhost:8080/reviews",
               "protocol": "http",
@@ -531,17 +540,9 @@
               "path": [
                 "reviews"
               ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"title\": \"Lovely day\",\n  \"text\": \"Quiet and clean.\",\n  \"score\": 5,\n  \"beachId\": 1\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Update review",
@@ -553,6 +554,15 @@
                 "value": "application/json"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Lovely day\",\n  \"text\": \"Quiet and clean.\",\n  \"score\": 5,\n  \"beachId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "http://localhost:8080/reviews/1",
               "protocol": "http",
@@ -564,17 +574,9 @@
                 "reviews",
                 "1"
               ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"title\": \"Lovely day\",\n  \"text\": \"Quiet and clean.\",\n  \"score\": 5,\n  \"beachId\": 1\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Delete review",
@@ -593,12 +595,10 @@
                 "1"
               ]
             }
-          }
+          },
+          "response": []
         }
-      ]
-    },
-    {
-      "name": "Favorites",
+      ],
       "auth": {
         "type": "bearer",
         "bearer": [
@@ -608,7 +608,10 @@
             "type": "string"
           }
         ]
-      },
+      }
+    },
+    {
+      "name": "Favorites",
       "item": [
         {
           "name": "Get my favorites",
@@ -626,11 +629,22 @@
                 "favorites"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Count favorites per beach (admin)",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -645,18 +659,9 @@
                 "count",
                 "1"
               ]
-            },
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{adminToken}}",
-                  "type": "string"
-                }
-              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Add favorite",
@@ -668,6 +673,15 @@
                 "value": "application/json"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beachId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "http://localhost:8080/favorites",
               "protocol": "http",
@@ -678,17 +692,9 @@
               "path": [
                 "favorites"
               ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"beachId\": 1\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Delete favorite",
@@ -707,12 +713,10 @@
                 "1"
               ]
             }
-          }
+          },
+          "response": []
         }
-      ]
-    },
-    {
-      "name": "Users",
+      ],
       "auth": {
         "type": "bearer",
         "bearer": [
@@ -722,11 +726,24 @@
             "type": "string"
           }
         ]
-      },
+      }
+    },
+    {
+      "name": "Users",
       "item": [
         {
           "name": "Get all users (admin)",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -739,18 +756,9 @@
               "path": [
                 "users"
               ]
-            },
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{adminToken}}",
-                  "type": "string"
-                }
-              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Get user",
@@ -769,7 +777,8 @@
                 "daniel"
               ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Create user",
@@ -781,6 +790,15 @@
                 "value": "application/json"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "http://localhost:8080/users/daniel",
               "protocol": "http",
@@ -792,17 +810,9 @@
                 "users",
                 "daniel"
               ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Update user",
@@ -814,6 +824,15 @@
                 "value": "application/json"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"Strandweg 1\",\n  \"city\": \"Bergen NH\",\n  \"age\": 30,\n  \"modesOfTransport\": [\n    \"CAR\",\n    \"BIKE\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "http://localhost:8080/users/daniel",
               "protocol": "http",
@@ -825,17 +844,9 @@
                 "users",
                 "daniel"
               ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"address\": \"Strandweg 1\",\n  \"city\": \"Bergen NH\",\n  \"age\": 30,\n  \"modesOfTransport\": [\n    \"CAR\",\n    \"BIKE\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Delete user",
@@ -854,9 +865,30 @@
                 "daniel"
               ]
             }
-          }
+          },
+          "response": []
         }
-      ]
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{userToken}}",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "adminToken",
+      "value": ""
+    },
+    {
+      "key": "userToken",
+      "value": ""
     }
   ]
 }
