@@ -9,7 +9,9 @@ public class BeachFeatureEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long beachFeatureId;
 
+    @Column(nullable = false, unique = true, length = 100)
     private String name;
+    @Column(nullable = false, length = 255)
     private String description;
 
     public Long getBeachFeatureId() {
