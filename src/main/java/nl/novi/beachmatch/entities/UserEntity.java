@@ -33,10 +33,10 @@ public class UserEntity {
     @Lob
     private byte[] profilePhotoData;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<FavoriteEntity> favorites;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<ReviewEntity> reviews;
 
     public Long getUserId() {
