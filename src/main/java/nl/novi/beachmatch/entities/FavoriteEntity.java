@@ -12,11 +12,11 @@ public class FavoriteEntity {
 
 
     @ManyToOne
-    @JoinColumn(name = "beachId")
+    @JoinColumn(name = "beachId", nullable = false)
     private BeachEntity beach;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "userId", nullable = false)
     private UserEntity user;
 
     public Long getFavoriteId() {

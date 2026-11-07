@@ -10,10 +10,14 @@ public class ReviewEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reviewId;
 
+    @Column(nullable = false, length = 100)
     private String title;
+    @Column(nullable = false, length = 255)
     private String text;
+    @Column(nullable = false)
     private Integer score;
 
+    @Column(nullable = false)
     private LocalDateTime createDate;
 
     @PrePersist
@@ -22,11 +26,11 @@ public class ReviewEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "beachId")
+    @JoinColumn(name = "beachId", nullable = false)
     private BeachEntity beach;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "userId", nullable = false)
     private UserEntity user;
 
     public Long getReviewId() {

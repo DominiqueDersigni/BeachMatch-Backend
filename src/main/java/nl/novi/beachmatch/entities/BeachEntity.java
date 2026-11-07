@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+
 @Entity
 @Table (name = "beaches")
 public class BeachEntity {
@@ -13,10 +14,15 @@ public class BeachEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long beachId;
 
+    @Column(nullable = false, unique = true, length = 100)
     private String name;
+    @Column(nullable = false, length = 255)
     private String description;
+    @Column(nullable = false)
     private String province;
+    @Column(nullable = false)
     private Double latitude;
+    @Column(nullable = false)
     private Double longitude;
 
     @OneToOne(cascade = CascadeType.REMOVE)

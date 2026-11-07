@@ -32,7 +32,8 @@ VALUES
 ('Renesse', 'A long Zeeland beach with sections for families, water sports and nature, next to the dunes and forests of Schouwen.', 'Zeeland', 51.7350, 3.7590),
 ('Cadzand-Bad', 'A broad sandy beach at the southernmost seaside resort in the Netherlands, known for coastal walks and fossil shark teeth.', 'Zeeland', 51.3790, 3.3840),
 ('De Koog', 'A popular Texel beach near the island’s main seaside village, with a wide sandy shore and access to dunes and beach pavilions.', 'Noord-Holland', 53.1020, 4.7470),
-('West aan Zee', 'A broad North Sea beach on Terschelling, with open horizons, dunes and plenty of space for long walks.', 'Friesland', 53.3900, 5.2220);
+('West aan Zee', 'A broad North Sea beach on Terschelling, with open horizons, dunes and plenty of space for long walks.', 'Friesland', 53.3900, 5.2220),
+('Castricum aan Zee', 'A wide North Sea beach backed by the dunes of the Noordhollands Duinreservaat, popular with surfers and walkers alike.', 'Noord-Holland', 52.5540, 4.6100);;
 
 
 --beachfeatures tabel
@@ -122,7 +123,11 @@ VALUES
     (24, 1), -- West aan Zee: Relax beach
     (24, 2), -- West aan Zee: Surf beach
     (24, 4), -- West aan Zee: Lifeguard
-    (24, 5); -- West aan Zee: Beach club
+    (24, 5), -- West aan Zee: Beach club
+    (25, 1), -- Castricum aan Zee: Relax beach
+    (25, 2), -- Castricum aan Zee: Surf beach
+    (25, 4), -- Castricum aan Zee: Lifeguard
+    (25, 5); -- Castricum aan Zee: Beach club
 
 -- reviews table
 INSERT INTO reviews (title, text, score, create_date, beach_id, user_id)
@@ -183,6 +188,7 @@ INSERT INTO favorites (beach_id, user_id)
 VALUES
     (1, 1),  -- Gittha: Bergen aan Zee
     (17, 1), -- Gittha: Egmond aan Zee
+    (25, 1), -- Gittha: Castricum aan Zee
     (16, 1), -- Gittha: Petten
     (15, 1), -- Gittha: Callantsoog
     (12, 2), -- Valerie: Makkum Beach

@@ -12,11 +12,15 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
+    private String email;
     private String address;
     private String city;
     private Integer age;
-    private String email;
+
+    @Column(nullable = false,  unique = true)
     private String keycloakId;
 
     @ElementCollection(fetch = FetchType.EAGER)
